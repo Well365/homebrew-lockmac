@@ -4,14 +4,14 @@ class Lockmac < Formula
   desc "macOS privacy veil — black out the screen (not a lock) with Telegram remote"
   homepage "https://github.com/Well365/lockMac"
   # Stable: a published release tarball of the repo. Generate + hash with:
-  #   git archive --format=tar.gz --prefix=lockmac-0.2.0/ HEAD > lockmac-0.2.0.tar.gz
-  #   shasum -a 256 lockmac-0.2.0.tar.gz
-  # then upload it to the GitHub release tagged v0.2.0.
-  url "https://github.com/Well365/lockMac/releases/download/v0.2.0/lockmac-0.2.0.tar.gz"
+  #   git archive --format=tar.gz --prefix=lockmac-0.3.0/ HEAD > lockmac-0.3.0.tar.gz
+  #   shasum -a 256 lockmac-0.3.0.tar.gz
+  # then upload it to the GitHub release tagged v0.3.0.
+  url "https://github.com/Well365/lockMac/releases/download/v0.3.0/lockmac-0.3.0.tar.gz"
   # sha256 of the tarball above — REGENERATE before publishing a new tag.
-  sha256 "9befb2606495ddf13d99817ef7c3826248b175c6e32e6cb28d5424ebea75ad1a"
+  sha256 "da1ff4eba9c3713e79f5e974151fb34da4eeaff7784158f059a4f80f61e5fc27"
   license "MIT"
-  version "0.2.0"
+  version "0.3.0"
 
   # Install with no release needed:  brew install --HEAD <this-formula>
   head "https://github.com/Well365/lockMac.git", branch: "main"
@@ -30,14 +30,21 @@ class Lockmac < Formula
 
   def caveats
     <<~EOS
-      lockmac compiles its Swift overlay on first use — this needs Xcode
-      Command Line Tools:
+      lockmac compiles its Swift helpers on first use (overlay = veil,
+      capture = photo/audio, camwatch = camera/mic detection) — this needs
+      Xcode Command Line Tools:
         xcode-select --install
+      (The signed .pkg ships these prebuilt, so it needs no Xcode.)
+
+      No Python dependencies — lockmac is standard-library only.
 
       Get started:
         lockmac setup        # password + login autostart
         lockmac tg-setup     # bind a Telegram bot for remote /lock /unlock
-        lockmac on / off
+        lockmac start        # start all services
+
+      Upgrade:
+        brew update && brew upgrade lockmac
     EOS
   end
 
