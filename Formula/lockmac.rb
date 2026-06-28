@@ -4,14 +4,14 @@ class Lockmac < Formula
   desc "macOS privacy veil — black out the screen (not a lock) with Telegram remote"
   homepage "https://github.com/Well365/lockMac"
   # Stable: a published release tarball of the repo. Generate + hash with:
-  #   git archive --format=tar.gz --prefix=lockmac-0.3.0/ HEAD > lockmac-0.3.0.tar.gz
-  #   shasum -a 256 lockmac-0.3.0.tar.gz
-  # then upload it to the GitHub release tagged v0.3.0.
-  url "https://github.com/Well365/lockMac/releases/download/v0.3.0/lockmac-0.3.0.tar.gz"
+  #   git archive --format=tar.gz --prefix=lockmac-0.5.0/ HEAD > lockmac-0.5.0.tar.gz
+  #   shasum -a 256 lockmac-0.5.0.tar.gz
+  # then upload it to the GitHub release tagged v0.5.0.
+  url "https://github.com/Well365/lockMac/releases/download/v0.5.0/lockmac-0.5.0.tar.gz"
   # sha256 of the tarball above — REGENERATE before publishing a new tag.
-  sha256 "da1ff4eba9c3713e79f5e974151fb34da4eeaff7784158f059a4f80f61e5fc27"
+  sha256 "6b532f72adfe9b555404e051779f4dd48ac3136d7b97d70bf0dea38b83e75c61"
   license "MIT"
-  version "0.3.0"
+  version "0.5.0"
 
   # Install with no release needed:  brew install --HEAD <this-formula>
   head "https://github.com/Well365/lockMac.git", branch: "main"
