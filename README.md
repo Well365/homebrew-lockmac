@@ -5,15 +5,24 @@ privacy veil with remote lock, dead-man switch, and emergency purge.
 
 ## Install
 
+Open **Terminal** (Applications → Utilities). No Homebrew yet? Install it first:
+
 ```bash
-brew install --cask Well365/lockmac/lockmac
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Or add the tap first, then install by short name:
+Then install lockmac:
 
 ```bash
 brew tap Well365/lockmac
-brew install --cask lockmac
+brew trust Well365/lockmac        # trust the third-party tap (Homebrew 6.x, if required)
+brew install --cask lockmac       # or: brew install --cask si4lockmac
+```
+
+Both `lockmac` and `si4lockmac` install the same app. Or in one line, without a separate tap step:
+
+```bash
+brew install --cask Well365/lockmac/lockmac
 ```
 
 ## Update / uninstall
@@ -26,10 +35,11 @@ brew uninstall --zap --cask lockmac   # also remove config, cache, login agents
 
 ## Maintainer: cutting a new release
 
-1. Build and notarize the new `lockmac-X.Y.Z.pkg`.
-2. Upload it to a GitHub Release on `Well365/si4lockmac` tagged `vX.Y.Z`.
-3. Compute the checksum: `shasum -a 256 lockmac-X.Y.Z.pkg`.
-4. Bump `version` and `sha256` in `Casks/lockmac.rb`, then commit and push.
+Automated: in the code repo, bump the version + commit, then run
+`packaging/build-pkg.sh` — it builds the pkg and syncs the version + sha256 into
+every `Casks/*.rb` here (and into the release repo). Then, from `si4lockmac-release/`,
+run `./publish.sh` — it creates the GitHub Release on `Well365/si4lockmac`, uploads
+the `.pkg`, and pushes the docs + this tap.
 
 > The `.pkg` must be signed with a Developer ID and notarized, otherwise
 > Gatekeeper blocks the `installer` step and `brew install --cask` fails for
