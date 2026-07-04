@@ -16,14 +16,18 @@ Then install lockmac:
 ```bash
 brew tap Well365/lockmac
 brew trust Well365/lockmac        # trust the third-party tap (Homebrew 6.x, if required)
-brew install --cask lockmac       # or: brew install --cask si4lockmac
+brew install --cask lockmac
 ```
 
-Both `lockmac` and `si4lockmac` install the same app. Or in one line, without a separate tap step:
+Or in one line, without a separate tap step:
 
 ```bash
 brew install --cask Well365/lockmac/lockmac
 ```
+
+Prefer the `si4lockmac` name? There's a parallel tap that installs the same app:
+`brew tap Well365/si4lockmac && brew install --cask si4lockmac`
+(see [Well365/homebrew-si4lockmac](https://github.com/Well365/homebrew-si4lockmac)).
 
 ## Update / uninstall
 
