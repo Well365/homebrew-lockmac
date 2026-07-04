@@ -1,6 +1,6 @@
 cask "lockmac" do
-  version "1.0.0"
-  sha256 "a85d0647bc9bb29396e96aec07b02ae49551b2d07d69ff0c3114442608d43596"
+  version "1.0.1"
+  sha256 "5a2472a8fc97c78c5bca7d1885e55418f5c04909681726770053df2d006e1094"
 
   url "https://github.com/Well365/si4lockmac/releases/download/v#{version}/lockmac-#{version}.pkg"
   name "lockmac"
