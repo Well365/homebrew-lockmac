@@ -1,8 +1,8 @@
 cask "lockmac" do
-  version "1.0.1"
-  sha256 "5a2472a8fc97c78c5bca7d1885e55418f5c04909681726770053df2d006e1094"
+  version "1.0.2"
+  sha256 "2677a285e601190d9eb5ae3edfde90bbbd7b10fb0de26001959f8942669df51d"
 
-  url "https://github.com/Well365/si4lockmac/releases/download/v#{version}/lockmac-#{version}.pkg"
+  url "https://github.com/Well365/si4lockmac/releases/download/v1.0.2/lockmac-1.0.2-4d986f-md5-4cc95b.pkg"
   name "lockmac"
   desc "macOS privacy veil with remote lock, dead-man switch, and emergency purge"
   homepage "https://github.com/Well365/si4lockmac"
@@ -10,7 +10,7 @@ cask "lockmac" do
   # The macOS app targets Ventura and later.
   depends_on macos: ">= :ventura"
 
-  pkg "lockmac-#{version}.pkg"
+  pkg "lockmac-1.0.2-4d986f-md5-4cc95b.pkg"
 
   uninstall quit:    "com.lockmac.app",
             pkgutil: "com.lockmac.pkg"
